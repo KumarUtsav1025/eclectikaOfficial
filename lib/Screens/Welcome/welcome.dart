@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:eclectika23_official_app/CustomWidgets/bannerSlider.dart';
+import 'package:eclectika23_official_app/CustomWidgets/imageSlider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,31 +14,16 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.black54,
         body: Stack(
           children: [
             SafeArea(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25.0),
-                    child: Text("ESOW",
-                      style: GoogleFonts.bebasNeue(fontSize: 64),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25.0, bottom: 20.0),
-                    child: Text("Electronic Safety Of Women",
-                      style: GoogleFonts.caveat(fontSize: 18, height: 0.1),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25.0,),
-                    child: Text("Let's Get Started",
-                      style: GoogleFonts.cabin(
-                          fontSize: 28, fontWeight: FontWeight.w800),
-                    ),
-                  ),
+                  SizedBox(height: 10.0,),
+                  BannerSlider(),
                   Row(
                     children: [
                       CustomButton(title: "Sign up", fillColor: C.backgroundColor,

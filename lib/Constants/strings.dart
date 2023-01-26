@@ -9,17 +9,11 @@ class S {
   static String email='email';
 
   //images
-  static const List carousel = [
-    "assets/images/safe.png",
-    "assets/images/sos.png",
-    "assets/images/sms.png",
-    "assets/images/location.png",
-  ];
+  static const String carousel = "asset/welcomeCarousel/";
+
   static const List text = [
-    "An app to help women in need.",
-    "In case of emergency, notifies emergency helplines",
-    "Sends an emergency message to selected contacts",
-    "Sends live location updates for faster tracking",
+    "Unleash your wild side at our Jurassic themed event.",
+    "Experience the thrill of the Jurassic at our upcoming event.",
   ];
   static const login = "assets/images/login.png";
   static const signup = "assets/images/sign.png";
