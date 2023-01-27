@@ -60,9 +60,15 @@ class _InitialPageState extends State<InitialPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20.0,),
+            SizedBox(height: 5.0,),
+            Center(
+              child: Text("ECLECTIKA'23",
+                style: GoogleFonts.bebasNeue(fontSize: 64,color: Colors.amber),
+              ),
+            ),
+            SizedBox(height: 5.0,),
             SizedBox(
-              height: widget.height*0.8,
+              height: widget.height*0.73,
               child: PageView(
                 onPageChanged: (int index){
                   current = index;
@@ -132,17 +138,21 @@ class FinalPage extends StatelessWidget {
             Text("ECLECTIKA", style: GoogleFonts.sen(fontSize: 38.0,color: Colors.amber, fontWeight: FontWeight.bold)),
             Center(child: Text("The Cultural Event at NIT Raipur", style: GoogleFonts.sen(fontSize: 20.0,color: Colors.white))),
             const SizedBox(height: 25.0,),
-            Center(child: Text("--- Register to Continue---", style: GoogleFonts.sen(fontSize: 18.0,color: Colors.white))),
+            Center(child: Text("---Register to Continue---", style: GoogleFonts.sen(fontSize: 18.0,color: Colors.white))),
             const SizedBox(height: 5.0,),
             FormButton(title: 'Signup',
                 fillColor: C.backgroundColor,
                 borderColor: C.buttonColor,
-                onClick: (){}
+                onClick: (){
+                  Navigator.pushReplacementNamed(context, S.routeSignup);
+                }
             ),
             FormButton(title: 'Login',
                 fillColor: C.backgroundColor,
                 borderColor: C.buttonColor,
-                onClick: (){}
+                onClick: (){
+                  Navigator.pushReplacementNamed(context, S.routeLogin);
+                }
             )
           ],
         )

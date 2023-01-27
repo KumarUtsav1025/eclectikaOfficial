@@ -15,8 +15,6 @@ class S {
     "Unleash your wild side at our Jurassic themed event.",
     "Experience the thrill of the Jurassic at our upcoming event.",
   ];
-  static const login = "assets/images/login.png";
-  static const signup = "assets/images/sign.png";
 
   //routes
   static const routeSplash = '/splash';

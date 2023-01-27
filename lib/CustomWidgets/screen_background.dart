@@ -27,3 +27,16 @@ class ScreenBackground extends StatelessWidget {
     );
   }
 }
+
+
+class ScreenBackground1 extends StatelessWidget {
+  const ScreenBackground1({super.key, this.elementId = ''});
+  final String elementId;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xff0E0207),
+    );
+  }
+}
