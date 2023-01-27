@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             colorScheme: ColorScheme.fromSwatch().copyWith(
               primary: C.gradientColor3,
-              secondary: C.gradientColor,
+              secondary: C.buttonColor,
             )
         ),
         home: const Welcome(),

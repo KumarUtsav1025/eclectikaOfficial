@@ -27,11 +27,11 @@ class CustomButton extends StatelessWidget {
       splashColor: C.gradientColor,
       onTap: onClick,
       child: Container(
-        margin: EdgeInsets.all(width*0.04),
+        margin: EdgeInsets.all(width*0.01),
         decoration: BoxDecoration(
             color: fillColor,
             border: Border.all(color: borderColor, width: 3.0),
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(25.0),
             boxShadow: [
               BoxShadow(
                 color: borderColor,
@@ -40,8 +40,8 @@ class CustomButton extends StatelessWidget {
               )
             ]
         ),
-        height: height*0.1,
-        width: width*0.418,
+        height: height*0.08,
+        width: width*0.455,
         child: Center(
           child: Text(title,
             style: GoogleFonts.cabin(
@@ -91,7 +91,7 @@ class FormButton extends StatelessWidget {
             ]
         ),
         height: height*0.075,
-        width: width*0.415,
+        width: width*0.8,
         child: Center(
           child: Text(title,
             style: GoogleFonts.cabin(
