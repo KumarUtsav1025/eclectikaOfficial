@@ -18,7 +18,7 @@ class CustomField extends StatelessWidget {
         color: C.backgroundColor,
         borderRadius: BorderRadius.circular(15)
         ),
-        height: 50,
+        height: 48,
           child:Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: TextFormField(
@@ -27,7 +27,7 @@ class CustomField extends StatelessWidget {
               keyboardType: TextInputType.name,
               style: const TextStyle(
                 color: C.buttonColor,
-                fontSize: D.inputFieldFontSize,
+                fontSize: D.inputFieldFontSize*0.8,
               ),
               textCapitalization: TextCapitalization.words,
               textInputAction: TextInputAction.next,
@@ -39,7 +39,7 @@ class CustomField extends StatelessWidget {
                 prefixIcon: Icon(
                   icon,
                   size: D.iconSize,
-                  color: C.gradientColor3,
+                  color: C.buttonColor,
                 ),
                 hintText: label,
                 hintStyle: TextStyle(color: C.buttonColor,
@@ -120,7 +120,7 @@ class PhoneField extends CustomField{
                   prefixIcon: Icon(
                     icon,
                     size: D.iconSize,
-                    color: C.gradientColor3,
+                    color: C.buttonColor,
                   ),
                   hintText: label,
                 ),

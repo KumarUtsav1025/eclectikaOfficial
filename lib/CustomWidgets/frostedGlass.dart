@@ -59,3 +59,59 @@ class FrostedGlassBox extends StatelessWidget {
     );
   }
 }
+
+class FrostedGlassBox1 extends StatelessWidget {
+  const FrostedGlassBox1(
+      {Key? key,
+        required this.theWidth,
+        required this.theChild})
+      : super(key: key);
+
+  final theWidth;
+  final theChild;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical:2, horizontal: 5),
+        width: theWidth,
+        color: Colors.transparent,
+        //we use Stack(); because we want the effects be on top of each other,
+        //  just like layer in photoshop.
+        child: Stack(
+          children: [
+            //blur effect ==> the third layer of stack
+            BackdropFilter(
+              filter: ImageFilter.blur(
+                //sigmaX is the Horizontal blur
+                sigmaX: 4.0,
+                //sigmaY is the Vertical blur
+                sigmaY: 4.0,
+              ),
+              //we use this container to scale up the blur effect to fit its
+              //  parent, without this container the blur effect doesn't appear.
+              child: Container(),
+            ),
+            //gradient effect ==> the second layer of stack
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      //begin color
+                      Colors.brown.withOpacity(0.25),
+                      //end color
+                      Colors.brown.withOpacity(0.10),
+                    ]),
+              ),
+            ),
+            //child ==> the first/top layer of stack
+            Center(child: theChild,)
+          ],
+        ),
+      ),
+    );
+  }
+}

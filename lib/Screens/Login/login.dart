@@ -77,6 +77,7 @@ class Login extends StatelessWidget {
     return SafeArea(
           child: Stack(
             children: [
+              Center(child: Image.asset("${S.carousel}5.png"),),
               Center(
                 child: Container(
                   height: height*0.48,
@@ -93,7 +94,9 @@ class Login extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: D.horizontalPadding*0.8),
                             child: Text("Welcome!",
-                              style: GoogleFonts.roboto(fontSize: 30, letterSpacing: 0.01, fontWeight: FontWeight.w600),
+                              style: GoogleFonts.roboto(color: C.primaryColor,
+                                  fontSize: 30, letterSpacing: 0.01, fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                           const SizedBox(height: D.horizontalPadding*0.12,),
@@ -115,8 +118,8 @@ class Login extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: D.horizontalPadding),
                             child: RichText(
                               text: TextSpan(
-                                text: "Haven't registered yet?",
-                                style: const TextStyle( color: Colors.black, fontSize: 16),
+                                text: "Haven't registered yet? ",
+                                style: const TextStyle( color: C.gradientColor3, fontSize: 16),
                                 children: <TextSpan>[
                                   TextSpan(text: 'Sign up',
                                       recognizer: TapGestureRecognizer()

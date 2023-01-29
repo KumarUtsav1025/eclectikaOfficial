@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 
-class ScreenBackground extends StatelessWidget {
-  const ScreenBackground({super.key, this.elementId = ''});
+class ScreenBackground1 extends StatelessWidget {
+  const ScreenBackground1({super.key, this.elementId = ''});
   final String elementId;
 
   @override
@@ -13,13 +13,14 @@ class ScreenBackground extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            C.gradientColor3,
-            C.gradientColor2,
-            C.gradientColor,
-            C.fieldColor,
-            C.gradientColor,
-            C.gradientColor2,
-            C.gradientColor3,
+            C.vintageBackdrop4,
+            C.vintageBackdrop4,
+            C.vintageBackdrop3,
+            C.vintageBackdrop2,
+            C.vintageBackdrop2,
+            C.vintageBackdrop3,
+            C.vintageBackdrop4,
+            C.vintageBackdrop4,
           ],
         ),
       ),
@@ -29,8 +30,8 @@ class ScreenBackground extends StatelessWidget {
 }
 
 
-class ScreenBackground1 extends StatelessWidget {
-  const ScreenBackground1({super.key, this.elementId = ''});
+class ScreenBackground extends StatelessWidget {
+  const ScreenBackground({super.key, this.elementId = ''});
   final String elementId;
 
   @override

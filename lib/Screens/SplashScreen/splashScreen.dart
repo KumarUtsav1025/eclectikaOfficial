@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          const ScreenBackground1(),
+          const ScreenBackground(),
           BlocConsumer<SplashScreenCubit, SplashScreenState>(
             listener: (context, state) {
               if (state is SplashScreenError) {
@@ -44,8 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     Text("Something went wrong. Try loging in again.")));
                 Navigator.pushReplacementNamed(context, S.routeWelcome);
               } else if (state is SplashScreenSuccess) {
-                Future.delayed(const Duration(milliseconds:2000)).then(
-                        (value) =>(FirebaseAuth.instance.currentUser!.displayName==null)?Navigator.pushReplacementNamed(context, S.routeProfile):Navigator.pushReplacementNamed(context, S.routeHome));
+                Navigator.pushReplacementNamed(context, S.routeHome);
               }
             },
             builder: (context, state) {

@@ -72,131 +72,146 @@ class SignUp extends StatelessWidget {
     return const LoadingScreen();
   }
 
+
+  Widget _buildScreen(double height, double width, BuildContext context) {
+    return SafeArea(
+      child: Stack(
+        children: [
+          Center(child: Image.asset("${S.carousel}5.png"),),
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IconButton(onPressed: () {
+                    Navigator.pop(context);
+                  },
+                    icon: const Icon(Icons.arrow_back_outlined,
+                      size: 32.0,
+                    ),),
+                ),
+                SizedBox(height: 50,),
+                Center(
+                  child: Container(
+                    height: height * 0.66,
+                    margin: EdgeInsets.symmetric(vertical: 15.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15.0),
+                    child: FrostedGlassBox(
+                      theWidth: width,
+                      theChild: Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 20),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: D.horizontalPadding *
+                                      0.8),
+                              child: Text("Create Account",
+                                style: GoogleFonts.roboto(fontSize: 30,
+                                    color: C.gradientColor3,
+                                    letterSpacing: 0.01,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                            CustomField(controller: nameController,
+                              label: 'Name',
+                              obsText: false,
+                              icon: Icons.person,),
+                            CustomField(controller: phoneController,
+                              label: 'Phone Number',
+                              obsText: false,
+                              icon: Icons.phone,),
+                            CustomField(controller: emailController,
+                              label: 'Email',
+                              obsText: false,
+                              icon: Icons.email,),
+                            CustomField(controller: passwordController,
+                              label: 'Password',
+                              obsText: true,
+                              icon: Icons.password,),
+                            CustomField(
+                              controller: confPasswordController,
+                              label: 'Confirm Password',
+                              obsText: true,
+                              icon: Icons.password,),
+                            const SizedBox(
+                              height: D.horizontalPadding * 0.5,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: FormButton(
+                                  title: 'Sign up',
+                                  fillColor: C.backgroundColor,
+                                  borderColor: C.gradientColor3,
+                                  onClick: () {
+                                    _signup(context);
+                                  }),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: D.horizontalPadding),
+                              child: RichText(
+                                text: TextSpan(
+                                  text: 'Already have an account? ',
+                                  style: const TextStyle(
+                                      color: C.gradientColor3,
+                                      fontSize: 16),
+                                  children: <TextSpan>[
+                                    TextSpan(text: 'Login',
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () {
+                                            Navigator
+                                                .pushReplacementNamed(
+                                                context, S.routeLogin);
+                                          },
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: C.gradientColor)),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
   void _signup(BuildContext context) {
     final cubit = context.read<SignupCubit>();
     if (_formKey.currentState!.validate() && passwordController.text==confPasswordController.text) {
       cubit.signup(
         emailController.text,
         passwordController.text,
+        nameController.text,
+        phoneController.text,
       );
     }
     else if(passwordController.text!=confPasswordController.text){
       ScaffoldMessenger.of(context)
-      .showSnackBar(const SnackBar(content: Text("Confirm Password does not match Password",style: TextStyle(color: C.gradientColor3),),backgroundColor: C.fieldColor,));
+          .showSnackBar(const SnackBar(content: Text("Confirm Password does not match Password",style: TextStyle(color: C.gradientColor3),),backgroundColor: C.fieldColor,));
     }
     else{
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("Fill Form Cautiously!",style: TextStyle(color: C.gradientColor3),),backgroundColor: C.fieldColor,));
-      }
     }
-
-  Widget _buildScreen(double height, double width, BuildContext context) {
-    return SafeArea(
-      child: Stack(
-        children: [
-          Center(
-            child: Container(
-              height: height * 0.72,
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 15.0),
-              child: FrostedGlassBox(
-                theWidth: width,
-                theChild: Form(
-                  key: _formKey,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: D.horizontalPadding *
-                                  0.8),
-                          child: Text("Create Account",
-                            style: GoogleFonts.roboto(fontSize: 30,
-                                letterSpacing: 0.01,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ),
-                        CustomField(controller: nameController,
-                          label: 'Name',
-                          obsText: false,
-                          icon: Icons.person,),
-                        CustomField(controller: phoneController,
-                          label: 'Phone Number',
-                          obsText: false,
-                          icon: Icons.phone,),
-                        CustomField(controller: emailController,
-                          label: 'Email',
-                          obsText: false,
-                          icon: Icons.email,),
-                        CustomField(controller: passwordController,
-                          label: 'Password',
-                          obsText: true,
-                          icon: Icons.password,),
-                        CustomField(
-                          controller: confPasswordController,
-                          label: 'Confirm Password',
-                          obsText: true,
-                          icon: Icons.password,),
-                        const SizedBox(
-                          height: D.horizontalPadding * 0.5,),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: FormButton(
-                              title: 'Sign up',
-                              fillColor: C.backgroundColor,
-                              borderColor: C.gradientColor3,
-                              onClick: () {
-                                _signup(context);
-                              }),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: D.horizontalPadding),
-                          child: RichText(
-                            text: TextSpan(
-                              text: 'Already have an account? ',
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16),
-                              children: <TextSpan>[
-                                TextSpan(text: 'Login',
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        Navigator
-                                            .pushReplacementNamed(
-                                            context, S.routeLogin);
-                                      },
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black)),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(onPressed: () {
-              Navigator.pop(context);
-            },
-              icon: const Icon(Icons.arrow_back_outlined,
-                size: 32.0,
-              ),),
-          ),
-
-        ],
-      ),
-    );
   }
 }
+
+
 
 
 

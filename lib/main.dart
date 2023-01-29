@@ -1,5 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
+import 'Screens/Home/cubit/homeCubit.dart';
+import 'Screens/Home/home.dart';
+import 'Screens/Home/network.dart';
 import 'Screens/SplashScreen/cubit/splashScreenCubit.dart';
 import 'Screens/SplashScreen/splashScreen.dart';
 import 'Screens/SplashScreen/splashScreenNetwork.dart';
@@ -45,6 +48,9 @@ class MyApp extends StatelessWidget {
               create: (_) => SplashScreenCubit(SplashNetwork()),
               child: SplashScreen()),
           S.routeWelcome: (_) => const Welcome(),
+          S.routeHome: (_) => BlocProvider(
+              create: (_) => HomeCubit(HomeNetwork()),
+              child: Home()),
           S.routeLogin: (_) => BlocProvider(
               create: (_) => LoginCubit(FirebaseLogin()),
               child: Login()),
