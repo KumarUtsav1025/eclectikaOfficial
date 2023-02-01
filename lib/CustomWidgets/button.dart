@@ -117,7 +117,8 @@ class MenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      margin: EdgeInsets.all(10.0),
       height: 130,
       width: width*0.8,
       child: Stack(

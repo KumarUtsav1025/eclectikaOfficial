@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
 import '../../Constants/strings.dart';
+import '../../CustomWidgets/customText.dart';
 import '../../CustomWidgets/loadingWidget.dart';
 import '../../CustomWidgets/screen_background.dart';
 import '../../Modals/users.dart';
@@ -58,7 +59,7 @@ class _HomeState extends State<Home> {
               if (state is HomeError) {
                 print('oh no');
                 ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text(state.message,style: TextStyle(color: C.gradientColor3),),backgroundColor: C.fieldColor,));
+                .showSnackBar(SnackBar(content: Text(state.message,style: const TextStyle(color: C.gradientColor3),),backgroundColor: C.fieldColor,));
               }
               if(state is HomeSuccess) {
                 print('fuck');
@@ -94,37 +95,38 @@ class _HomeState extends State<Home> {
                 height: height,
                 child: Center(child: Image.asset("${S.carousel}5.png"))),
             Container(
-              padding: EdgeInsets.only(top: 200),
+              padding: const EdgeInsets.only(top: 200),
               width: width,
               height: height,
-              child: ListView.separated(
+              child: ListView(
                 padding: const EdgeInsets.all(8),
-                itemCount: entries.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return MenuButton(width: width, imgPath:entries[index], tag: tag[index],
-                    onTap: ()=>print("NAcho"),
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) => const Divider(),
-              ),
+                children: <Widget>[
+                  MenuButton(onTap: (){}, width: width, tag: "Events", imgPath: S.evnets),
+                  MenuButton(onTap: (){}, width: width, tag: "Schedule", imgPath: S.evnets),
+                  MenuButton(onTap: (){}, width: width, tag: "Face Of Eclectika", imgPath: S.evnets),
+                  MenuButton(onTap: (){}, width: width, tag: "Mad Ads", imgPath: S.evnets),
+                  MenuButton(onTap: (){}, width: width, tag: "Gallery", imgPath: S.evnets),
+                  MenuButton(onTap: (){}, width: width, tag: "About Us", imgPath: S.evnets),
+                ],
+              )
             ),
             Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 25.0),
+                  padding: const EdgeInsets.only(top: 25.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(onPressed: (){
                         //TODO: Add profile page
                       },
-                        icon: Icon(Icons.person,color: C.vintageBackdrop1, size: 30.0,),),
+                        icon: const Icon(Icons.person,color: C.vintageBackdrop1, size: 30.0,),),
                       IconButton(onPressed: () async {
                         await FirebaseAuth.instance.signOut();
                         print(FirebaseAuth.instance.currentUser);
                         Navigator.pushReplacementNamed(context, S.routeSplash);
                       },
-                        icon: Icon(Icons.logout,color: C.vintageBackdrop1, size: 30.0,),),
+                        icon: const Icon(Icons.logout,color: C.vintageBackdrop1, size: 30.0,),),
 
                     ],
                   ),
@@ -133,11 +135,32 @@ class _HomeState extends State<Home> {
                     theWidth: width,
                     theChild: Column(
                       children: [
-                        Text("ECLECTIKA'23", style: GoogleFonts.sen(fontSize: 40.0,color: C.vintageBackdrop1, fontWeight: FontWeight.bold)),
-                        SizedBox(height: 5.0,),
-                        Align(alignment: Alignment.centerLeft ,child: Text("Let's start the", style: GoogleFonts.sen(fontSize: 30.0,color: C.gradientColor3, fontWeight: FontWeight.normal))),
-                        Align(alignment: Alignment.centerLeft ,child: Text("Thunder.", style: GoogleFonts.sen(fontSize: 30.0,color: C.gradientColor, fontWeight: FontWeight.bold))),
-
+                        GradientText("ECLECTIKA",
+                            gradient: const LinearGradient(
+                              colors: [
+                                C.vintageBackdrop2,
+                                Color(0xffCA965C),
+                                Color(0xff876445),
+                                Color(0xffCA965C),
+                                Color(0xff876445),
+                                Color(0xffCA965C),
+                                Color(0xff876445),
+                                C.vintageBackdrop2,
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            )),
+                        const SizedBox(height: 5.0,),
+                        RichText(
+                          text: const TextSpan(
+                            text: "Let's start the ",
+                            style: TextStyle( color: Color(0xffCA965C), fontSize: 24),
+                            children: <TextSpan>[
+                              TextSpan(text: 'Thunder',
+                                  style: TextStyle(fontWeight: FontWeight.bold, color: C.buttonColor)),
+                            ],
+                          ),
+                        ),
                       ],
                     )),
               ],
