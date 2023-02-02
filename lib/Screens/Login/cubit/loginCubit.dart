@@ -20,8 +20,8 @@ class LoginCubit extends Cubit<LoginState> {
       User? user = await _firebaseLogin.login(emailAddress: email, password: password);
       print(user);
       S.userId=user!.uid;
-      S.email =user!.email!;
-      emit(LoginSuccess(user!));
+      S.email =user.email!;
+      emit(LoginSuccess(user));
     } on CustomException catch(e) {
       emit(LoginError(e.description));
     } catch (e) {
