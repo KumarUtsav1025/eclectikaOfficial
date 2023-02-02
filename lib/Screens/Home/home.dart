@@ -82,8 +82,6 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildSuccess(BuildContext context, width, height){
-    final List<String> entries = <String>[S.evnets, S.schedule, S.face, "${S.carousel}5.png"];
-    final List<String> tag= <String>["Events", "Schedule", "Face of Eclectika", "About Us"];
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -104,7 +102,7 @@ class _HomeState extends State<Home> {
                   MenuButton(onTap: (){}, width: width, tag: "Events", imgPath: S.evnets),
                   MenuButton(onTap: (){}, width: width, tag: "Schedule", imgPath: S.evnets),
                   MenuButton(onTap: (){}, width: width, tag: "Face Of Eclectika", imgPath: S.evnets),
-                  MenuButton(onTap: (){}, width: width, tag: "Mad Ads", imgPath: S.evnets),
+                  MenuButton(onTap: ()=>Navigator.pushNamed(context, S.routeMadAds), width: width, tag: "Mad Ads", imgPath: S.evnets),
                   MenuButton(onTap: (){}, width: width, tag: "Gallery", imgPath: S.evnets),
                   MenuButton(onTap: (){}, width: width, tag: "About Us", imgPath: S.evnets),
                 ],

@@ -23,6 +23,7 @@ class S {
 
   //routes
   static const routeSplash = '/splash';
+  static const routeMadAds = '/madAds';
   static const routeHome = '/home';
   static const routeWelcome = '/welcome';
   static const routeLogin = '/login';

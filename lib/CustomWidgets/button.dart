@@ -113,7 +113,7 @@ class MenuButton extends StatelessWidget {
   double width;
   String imgPath;
   String tag;
-  Function onTap;
+  final GestureTapCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +140,7 @@ class MenuButton extends StatelessWidget {
                   Align(alignment: Alignment.center,child: Text(tag, style: GoogleFonts.sen(fontSize: 25.0,color: C.vintageBackdrop4, fontWeight: FontWeight.bold))),
                   Align(alignment: Alignment.bottomRight,
                       child: GestureDetector(child: Icon(Icons.login),
-                        onTap: ()=>onTap,
+                        onTap: onTap,
                       ),
                   ),
                 ],
