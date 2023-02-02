@@ -11,6 +11,8 @@ import '../../CustomWidgets/customText.dart';
 
 class MadAdsScreen extends StatelessWidget {
   const MadAdsScreen({Key? key}) : super(key: key);
+  
+  get controller => null;
 
   @override
   Widget build(BuildContext context){
@@ -74,7 +76,7 @@ class MadAdsScreen extends StatelessWidget {
                       children: [
                         ListView(
                           children: <Widget>[
-                            videoPlayer(controller: controller)
+                            //videoPlayer(controller: controller),
                             MenuButton(onTap: (){}, width: width, tag: "Events", imgPath: S.evnets),
                             MenuButton(onTap: (){}, width: width, tag: "Schedule", imgPath: S.evnets),
                             MenuButton(onTap: (){}, width: width, tag: "Face Of Eclectika", imgPath: S.evnets),
@@ -99,7 +101,6 @@ class MadAdsScreen extends StatelessWidget {
   }
 }
 
-
 class videoPlayer extends StatelessWidget {
   const videoPlayer({
     Key? key,
@@ -116,4 +117,3 @@ class videoPlayer extends StatelessWidget {
     );
   }
 }
-

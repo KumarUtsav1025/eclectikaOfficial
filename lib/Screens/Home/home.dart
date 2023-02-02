@@ -1,5 +1,6 @@
 import 'package:eclectika23_official_app/CustomWidgets/button.dart';
 import 'package:eclectika23_official_app/CustomWidgets/frostedGlass.dart';
+import 'package:eclectika23_official_app/Screens/events/events_main_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -15,7 +16,6 @@ import '../../constants/colors.dart';
 
 import 'cubit/homeCubit.dart';
 
-
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
 
@@ -24,7 +24,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   late VideoPlayerController _controller;
   UserProfile? userProfile;
 
@@ -54,35 +53,36 @@ class _HomeState extends State<Home> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: BlocConsumer<HomeCubit, HomeState>(
-            listener: (context, state) {
-              if (state is HomeError) {
-                print('oh no');
-                ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text(state.message,style: const TextStyle(color: C.gradientColor3),),backgroundColor: C.fieldColor,));
-              }
-              if(state is HomeSuccess) {
-                print('fuck');
-                  userProfile = state.userProfile;
-              }
-            },
-            builder: (context, state) {
-              return Stack(
-                children: [
-                  const ScreenBackground(),
-                  if (state is HomeLoading)
-                    _buildLoading(context)
-                  else
-                    _buildSuccess(context, width, height),
-                ],
-              );
-            }
-        ),
+      body: BlocConsumer<HomeCubit, HomeState>(listener: (context, state) {
+        if (state is HomeError) {
+          print('oh no');
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+              state.message,
+              style: const TextStyle(color: C.gradientColor3),
+            ),
+            backgroundColor: C.fieldColor,
+          ));
+        }
+        if (state is HomeSuccess) {
+          print('fuck');
+          userProfile = state.userProfile;
+        }
+      }, builder: (context, state) {
+        return Stack(
+          children: [
+            const ScreenBackground(),
+            if (state is HomeLoading)
+              _buildLoading(context)
+            else
+              _buildSuccess(context, width, height),
+          ],
+        );
+      }),
     );
   }
 
-  Widget _buildSuccess(BuildContext context, width, height){
-
+  Widget _buildSuccess(BuildContext context, width, height) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -93,21 +93,50 @@ class _HomeState extends State<Home> {
                 height: height,
                 child: Center(child: Image.asset("${S.carousel}5.png"))),
             Container(
-              padding: const EdgeInsets.only(top: 200),
-              width: width,
-              height: height,
-              child: ListView(
-                padding: const EdgeInsets.all(8),
-                children: <Widget>[
-                  MenuButton(onTap: (){}, width: width, tag: "Events", imgPath: S.evnets),
-                  MenuButton(onTap: (){}, width: width, tag: "Schedule", imgPath: S.evnets),
-                  MenuButton(onTap: (){}, width: width, tag: "Face Of Eclectika", imgPath: S.evnets),
-                  MenuButton(onTap: ()=>Navigator.pushNamed(context, S.routeMadAds), width: width, tag: "Mad Ads", imgPath: S.evnets),
-                  MenuButton(onTap: (){}, width: width, tag: "Gallery", imgPath: S.evnets),
-                  MenuButton(onTap: (){}, width: width, tag: "About Us", imgPath: S.evnets),
-                ],
-              )
-            ),
+                padding: const EdgeInsets.only(top: 200),
+                width: width,
+                height: height,
+                child: ListView(
+                  padding: const EdgeInsets.all(8),
+                  children: <Widget>[
+                    MenuButton(
+                        onTap: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: ((context) {
+                            return EventMainScreen();
+                          })));
+                        },
+                        width: width,
+                        tag: "Events",
+                        imgPath: S.evnets),
+                    MenuButton(
+                        onTap: () {},
+                        width: width,
+                        tag: "Schedule",
+                        imgPath: S.evnets),
+                    MenuButton(
+                        onTap: () {},
+                        width: width,
+                        tag: "Face Of Eclectika",
+                        imgPath: S.evnets),
+                    MenuButton(
+                        onTap: () =>
+                            Navigator.pushNamed(context, S.routeMadAds),
+                        width: width,
+                        tag: "Mad Ads",
+                        imgPath: S.evnets),
+                    MenuButton(
+                        onTap: () {},
+                        width: width,
+                        tag: "Gallery",
+                        imgPath: S.evnets),
+                    MenuButton(
+                        onTap: () {},
+                        width: width,
+                        tag: "About Us",
+                        imgPath: S.evnets),
+                  ],
+                )),
             Column(
               children: [
                 Padding(
@@ -115,17 +144,29 @@ class _HomeState extends State<Home> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(onPressed: (){
-                        //TODO: Add profile page
-                      },
-                        icon: const Icon(Icons.person,color: C.vintageBackdrop1, size: 30.0,),),
-                      IconButton(onPressed: () async {
-                        await FirebaseAuth.instance.signOut();
-                        print(FirebaseAuth.instance.currentUser);
-                        Navigator.pushReplacementNamed(context, S.routeSplash);
-                      },
-                        icon: const Icon(Icons.logout,color: C.vintageBackdrop1, size: 30.0,),),
-
+                      IconButton(
+                        onPressed: () {
+                          //TODO: Add profile page
+                        },
+                        icon: const Icon(
+                          Icons.person,
+                          color: C.vintageBackdrop1,
+                          size: 30.0,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () async {
+                          await FirebaseAuth.instance.signOut();
+                          print(FirebaseAuth.instance.currentUser);
+                          Navigator.pushReplacementNamed(
+                              context, S.routeSplash);
+                        },
+                        icon: const Icon(
+                          Icons.logout,
+                          color: C.vintageBackdrop1,
+                          size: 30.0,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -148,14 +189,20 @@ class _HomeState extends State<Home> {
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                             )),
-                        const SizedBox(height: 5.0,),
+                        const SizedBox(
+                          height: 5.0,
+                        ),
                         RichText(
                           text: const TextSpan(
                             text: "Let's start the ",
-                            style: TextStyle( color: Color(0xffCA965C), fontSize: 24),
+                            style: TextStyle(
+                                color: Color(0xffCA965C), fontSize: 24),
                             children: <TextSpan>[
-                              TextSpan(text: 'Thunder',
-                                  style: TextStyle(fontWeight: FontWeight.bold, color: C.buttonColor)),
+                              TextSpan(
+                                  text: 'Thunder',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: C.buttonColor)),
                             ],
                           ),
                         ),
@@ -183,7 +230,8 @@ class videoPlayer extends StatelessWidget {
   const videoPlayer({
     Key? key,
     required VideoPlayerController controller,
-  }) : _controller = controller, super(key: key);
+  })  : _controller = controller,
+        super(key: key);
 
   final VideoPlayerController _controller;
 
@@ -195,10 +243,3 @@ class videoPlayer extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
