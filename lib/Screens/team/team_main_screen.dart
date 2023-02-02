@@ -99,7 +99,7 @@ class _TeamMainScreenState extends State<TeamMainScreen> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/sponsors_jungle3.jpg"),
+                image: AssetImage("asset/welcomeCarousel/5.png"),
                 fit: BoxFit.cover,
               )
             ),
@@ -112,7 +112,6 @@ class _TeamMainScreenState extends State<TeamMainScreen> {
           ),
           child: Column(
             children: [
-              const SizedBox(height: 30,),
               const SizedBox(height: 30,),
               ListView.builder(
                 primary: false,

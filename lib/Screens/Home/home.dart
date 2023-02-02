@@ -1,6 +1,7 @@
 import 'package:eclectika23_official_app/CustomWidgets/button.dart';
 import 'package:eclectika23_official_app/CustomWidgets/frostedGlass.dart';
 import 'package:eclectika23_official_app/Screens/events/events_main_screen.dart';
+import 'package:eclectika23_official_app/Screens/events/events_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -100,25 +101,20 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.all(8),
                   children: <Widget>[
                     MenuButton(
-                        onTap: () {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: ((context) {
-                            return EventMainScreen();
-                          })));
-                        },
+                        onTap: () => Navigator.pushNamed(context, S.routeEvents),
                         width: width,
                         tag: "Events",
                         imgPath: S.evnets),
                     MenuButton(
-                        onTap: () {},
+                        onTap: () => Navigator.pushNamed(context, S.routeSponsors),
                         width: width,
-                        tag: "Schedule",
+                        tag: "Sponsors",
                         imgPath: S.evnets),
                     MenuButton(
-                        onTap: () {},
+                        onTap: () => Navigator.pushNamed(context, S.routeFaceOfEclectika),
                         width: width,
                         tag: "Face Of Eclectika",
-                        imgPath: S.evnets),
+                        imgPath: S.face),
                     MenuButton(
                         onTap: () =>
                             Navigator.pushNamed(context, S.routeMadAds),
@@ -126,12 +122,12 @@ class _HomeState extends State<Home> {
                         tag: "Mad Ads",
                         imgPath: S.evnets),
                     MenuButton(
-                        onTap: () {},
+                        onTap: () => Navigator.pushNamed(context, S.routeGallery),
                         width: width,
                         tag: "Gallery",
-                        imgPath: S.evnets),
+                        imgPath: S.gallery),
                     MenuButton(
-                        onTap: () {},
+                        onTap: () => Navigator.pushNamed(context, S.routeTeam),
                         width: width,
                         tag: "About Us",
                         imgPath: S.evnets),

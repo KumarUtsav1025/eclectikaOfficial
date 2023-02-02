@@ -12,6 +12,7 @@ class S {
   static const String face = "asset/menu/face.png";
   static const String schedule = "asset/menu/schedule.png";
   static const String team = "asset/welcomeCarousel/5.png";
+  static const String gallery="asset/menu/dinosaur_taking_pictures.webp";
 
   static const List text = [
     "Unleash your wild side at our Jurassic themed event.",
@@ -27,6 +28,10 @@ class S {
   static const routeSignup = '/signup';
   static const routeProfile = '/profile';
   static const routeEvents = '/events';
+  static const routeSponsors = '/sponsors';
+  static const routeTeam = '/team';
+  static const routeFaceOfEclectika = '/face_of_eclectika';
+  static const routeGallery = '/gallery';
 
   //errors
   static const firebaseErrors = {
