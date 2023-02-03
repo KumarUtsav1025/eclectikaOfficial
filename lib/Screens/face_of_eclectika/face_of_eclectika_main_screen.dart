@@ -15,11 +15,13 @@ class _FaceOfEclectikaMainScreenState extends State<FaceOfEclectikaMainScreen> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Main Screen'),
+          title: Text('Face Of Eclectika'),
           leading: IconButton(
             onPressed: ()=>ZoomDrawer.of(context)!.toggle(), 
             icon: Icon(Icons.menu)
           ),
-        ));
+        ),
+        body: Center(child: Text("App Under Construction")),
+        );
   }
 }

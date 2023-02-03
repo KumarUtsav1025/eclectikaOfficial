@@ -1,5 +1,7 @@
+import 'package:eclectika23_official_app/Screens/MadAds/MadAds.dart';
 import 'package:eclectika23_official_app/Screens/events/events_screen.dart';
 import 'package:eclectika23_official_app/Screens/face_of_eclectika/face_of_eclectika_screen.dart';
+import 'package:eclectika23_official_app/Screens/gallery/gallery_screen.dart';
 import 'package:eclectika23_official_app/Screens/sponsors/sponsors_screen.dart';
 import 'package:eclectika23_official_app/Screens/team/team_screen.dart';
 import 'package:flutter/material.dart';
@@ -112,6 +114,86 @@ class MenuPage extends StatelessWidget {
                           child: const Center(
                               child: Text(
                             "Face of Eclectika",
+                            style: TextStyle(
+                                color: Color(0xffFFEBC1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 23),
+                          )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ), GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: ((context) {
+                            return MadAdsScreen();
+                          })));
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: Color(0xffD7A86E),
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black,
+                                spreadRadius: 1,
+                                blurRadius: 8,
+                                offset: Offset(4, 4),
+                              ),
+                              BoxShadow(
+                                color: Colors.black,
+                                spreadRadius: 2,
+                                blurRadius: 8,
+                                offset: Offset(-4, -4),
+                              ),
+                            ],
+                          ),
+                          child: const Center(
+                              child: Text(
+                            "MadAds",
+                            style: TextStyle(
+                                color: Color(0xffFFEBC1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 23),
+                          )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ), GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: ((context) {
+                            return GalleryScreen();
+                          })));
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: Color(0xffD7A86E),
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black,
+                                spreadRadius: 1,
+                                blurRadius: 8,
+                                offset: Offset(4, 4),
+                              ),
+                              BoxShadow(
+                                color: Colors.black,
+                                spreadRadius: 2,
+                                blurRadius: 8,
+                                offset: Offset(-4, -4),
+                              ),
+                            ],
+                          ),
+                          child: const Center(
+                              child: Text(
+                            "Gallery",
                             style: TextStyle(
                                 color: Color(0xffFFEBC1),
                                 fontWeight: FontWeight.bold,
