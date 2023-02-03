@@ -17,8 +17,8 @@ class Welcome extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
 
     List<Widget> listBanners = [
-      customBanner(imagePath: '${S.carousel}1.png', text: '${S.text[0]}', height: height, width: width),
-      customBanner(imagePath: '${S.carousel}2.png', text: '${S.text[1]}', height: height, width: width),
+      customBanner(imagePath: '${S.carousel}1.png', text: '${S.text1[0]}', height: height, width: width),
+      customBanner(imagePath: '${S.carousel}2.png', text: '${S.text1[1]}', height: height, width: width),
     ];
 
     return Scaffold(
