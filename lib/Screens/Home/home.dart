@@ -101,10 +101,7 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     MenuButton(
                         onTap: () {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: ((context) {
-                            return EventMainScreen();
-                          })));
+                          Navigator.pushNamed(context, S.routeEvents);
                         },
                         width: width,
                         tag: "Events",
@@ -113,28 +110,28 @@ class _HomeState extends State<Home> {
                         onTap: () {},
                         width: width,
                         tag: "Schedule",
-                        imgPath: S.evnets),
+                        imgPath: S.schedule),
                     MenuButton(
                         onTap: () {},
                         width: width,
                         tag: "Face Of Eclectika",
-                        imgPath: S.evnets),
+                        imgPath: S.face),
                     MenuButton(
                         onTap: () =>
                             Navigator.pushNamed(context, S.routeMadAds),
                         width: width,
                         tag: "Mad Ads",
-                        imgPath: S.evnets),
+                        imgPath: "${S.carousel}5.png"),
                     MenuButton(
                         onTap: () {},
                         width: width,
                         tag: "Gallery",
-                        imgPath: S.evnets),
+                        imgPath: S.gallery),
                     MenuButton(
                         onTap: () {},
                         width: width,
                         tag: "About Us",
-                        imgPath: S.evnets),
+                        imgPath: S.team),
                   ],
                 )),
             Column(

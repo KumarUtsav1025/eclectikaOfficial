@@ -1,9 +1,12 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:eclectika23_official_app/CustomWidgets/screen_background.dart';
+import 'package:eclectika23_official_app/Screens/MadAds/youtubePlayer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../Constants/MadAdsLinks.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/strings.dart';
 import '../../CustomWidgets/button.dart';
@@ -11,8 +14,7 @@ import '../../CustomWidgets/customText.dart';
 
 class MadAdsScreen extends StatelessWidget {
   const MadAdsScreen({Key? key}) : super(key: key);
-  
-  get controller => null;
+
 
   @override
   Widget build(BuildContext context){
@@ -46,16 +48,16 @@ class MadAdsScreen extends StatelessWidget {
           children: [
             const ScreenBackground(),
             DefaultTabController(
-              length: 2,
+              length: 4,
               child: Column(
                 children: <Widget>[
                   ButtonsTabBar(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 5.0),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 5.0),
                     backgroundColor: C.vintageBackdrop3,
                     unselectedBackgroundColor: C.vintageBackdrop1,
                     labelStyle:
-                    TextStyle(color: C.vintageBackdrop1, fontWeight: FontWeight.bold),
-                    unselectedLabelStyle: TextStyle(
+                    const TextStyle(color: C.vintageBackdrop1, fontWeight: FontWeight.bold),
+                    unselectedLabelStyle: const TextStyle(
                         color: C.vintageBackdrop3, fontWeight: FontWeight.bold),
                     borderWidth: 1,
                     unselectedBorderColor: C.vintageBackdrop3,
@@ -63,30 +65,63 @@ class MadAdsScreen extends StatelessWidget {
                     tabs: const [
                       Tab(
                         icon: Icon(Icons.slow_motion_video),
-                        text: "Recents",
+                        text: "2023",
                       ),
                       Tab(
                         icon: Icon(Icons.slow_motion_video),
-                        text: "Previous",
+                        text: "2020",
+                      ),
+                      Tab(
+                        icon: Icon(Icons.slow_motion_video),
+                        text: "2019",
+                      ),
+                      Tab(
+                        icon: Icon(Icons.slow_motion_video),
+                        text: "2018",
                       ),
                     ],
                   ),
                   Expanded(
                     child: TabBarView(
                       children: [
-                        ListView(
-                          children: <Widget>[
-                            //videoPlayer(controller: controller),
-                            MenuButton(onTap: (){}, width: width, tag: "Events", imgPath: S.evnets),
-                            MenuButton(onTap: (){}, width: width, tag: "Schedule", imgPath: S.evnets),
-                            MenuButton(onTap: (){}, width: width, tag: "Face Of Eclectika", imgPath: S.evnets),
-                            MenuButton(onTap: ()=>Navigator.pushNamed(context, S.routeMadAds), width: width, tag: "Mad Ads", imgPath: S.evnets),
-                            MenuButton(onTap: (){}, width: width, tag: "Gallery", imgPath: S.evnets),
-                            MenuButton(onTap: (){}, width: width, tag: "About Us", imgPath: S.evnets),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.download_outlined, color:C.primaryColor, size:50),
+                            Text("Will be uploaded Soon...",
+                              maxLines: 1,
+                              style: GoogleFonts.roboto(color: C.primaryColor,
+                                fontSize: 25, letterSpacing: 0.01, fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ],
                         ),
-                        Center(
-                          child: Icon(Icons.directions_transit),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.download_outlined, color:C.primaryColor, size:50),
+                            Text("Will be uploaded Soon...",
+                              maxLines: 1,
+                              style: GoogleFonts.roboto(color: C.primaryColor,
+                                fontSize: 25, letterSpacing: 0.01, fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                        ListView(
+                            children: videoTabs(year: "2019")
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.download_outlined, color:C.primaryColor, size:50),
+                            Text("Will be uploaded Soon...",
+                              maxLines: 1,
+                              style: GoogleFonts.roboto(color: C.primaryColor,
+                                fontSize: 25, letterSpacing: 0.01, fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -101,19 +136,63 @@ class MadAdsScreen extends StatelessWidget {
   }
 }
 
-class videoPlayer extends StatelessWidget {
-  const videoPlayer({
-    Key? key,
-    required VideoPlayerController controller,
-  }) : _controller = controller, super(key: key);
+List<VideoTab> videoTabs({required String year}){
+  List<VideoTab> videoList = [];
+  madAds[year]?.forEach((element) {
+    videoList.add(VideoTab(img: element['img'], link: element['link'], desc:element['description'], title: element['title']));
+  });
+  return videoList;
+}
 
-  final VideoPlayerController _controller;
+class VideoTab extends StatelessWidget {
+  String img;
+  String link;
+  String title;
+  String desc;
+
+
+  VideoTab({required this.img, required this.link, required this.desc, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: _controller.value.aspectRatio,
-      child: VideoPlayer(_controller),
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    return Container(
+      margin: const EdgeInsets.all(10),
+      color: C.vintageBackdrop2,
+      padding: const EdgeInsets.all(10.0),
+      height: height*0.4,
+      width: width,
+      child: Stack(
+        children: [
+          Image.network(img,fit: BoxFit.cover,),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(bottom: 50),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>YoutubeMadAds(link: link)));
+                  },
+                    child: Icon(Icons.play_arrow_rounded, color: C.vintageBackdrop2,size: 80.0,),
+                ),
+              ),
+              Text(title,
+                maxLines: 1,
+                style: GoogleFonts.roboto(color: C.primaryColor,
+                  fontSize: 25, letterSpacing: 0.01, fontWeight: FontWeight.w600,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Text(desc,maxLines: 2,),
+              )
+            ],
+          ),
+
+        ],
+      ),
     );
   }
 }

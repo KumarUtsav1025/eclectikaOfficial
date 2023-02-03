@@ -9,9 +9,11 @@ class S {
   //images
   static const String carousel = "asset/welcomeCarousel/";
   static const String evnets = "asset/menu/events.png";
+  static const String gallery = "asset/menu/gallery.png";
+  static const String sponsor = "asset/menu/sponsor.jpeg";
   static const String face = "asset/menu/face.png";
   static const String schedule = "asset/menu/schedule.png";
-  static const String team = "asset/welcomeCarousel/5.png";
+  static const String team = "asset/menu/team.jpeg";
 
   static const List text = [
     "Unleash your wild side at our Jurassic themed event.",

@@ -1,4 +1,5 @@
 import 'package:eclectika23_official_app/Screens/MadAds/MadAds.dart';
+import 'package:eclectika23_official_app/Screens/events/events_main_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'Screens/Home/cubit/homeCubit.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
               child: SplashScreen()),
           S.routeWelcome: (_) => const Welcome(),
           S.routeMadAds: (_) => const MadAdsScreen(),
+          S.routeEvents: (_) => const EventMainScreen(),
           S.routeHome: (_) => BlocProvider(
               create: (_) => HomeCubit(HomeNetwork()),
               child: Home()),
