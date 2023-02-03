@@ -14,6 +14,7 @@ class S {
   static const String face = "asset/menu/face.png";
   static const String schedule = "asset/menu/schedule.png";
   static const String team = "asset/menu/team.jpeg";
+  static const String profile = "asset/menu/profile.png";
 
   static const List text = [
     "Unleash your wild side at our Jurassic themed event.",

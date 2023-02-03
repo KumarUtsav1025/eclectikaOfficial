@@ -4,6 +4,7 @@ import 'package:eclectika23_official_app/Screens/events/events_main_screen.dart'
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
@@ -24,6 +25,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final _advancedDrawerController = AdvancedDrawerController();
   late VideoPlayerController _controller;
   UserProfile? userProfile;
 
@@ -83,133 +85,221 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildSuccess(BuildContext context, width, height) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Stack(
-          children: [
-            Container(
-                width: width,
-                height: height,
-                child: Center(child: Image.asset("${S.carousel}5.png"))),
-            Container(
-                padding: const EdgeInsets.only(top: 200),
-                width: width,
-                height: height,
-                child: ListView(
-                  padding: const EdgeInsets.all(8),
-                  children: <Widget>[
-                    MenuButton(
-                        onTap: () {
-                          Navigator.pushNamed(context, S.routeEvents);
-                        },
-                        width: width,
-                        tag: "Events",
-                        imgPath: S.evnets),
-                    MenuButton(
-                        onTap: () {},
-                        width: width,
-                        tag: "Schedule",
-                        imgPath: S.schedule),
-                    MenuButton(
-                        onTap: () {},
-                        width: width,
-                        tag: "Face Of Eclectika",
-                        imgPath: S.face),
-                    MenuButton(
-                        onTap: () =>
-                            Navigator.pushNamed(context, S.routeMadAds),
-                        width: width,
-                        tag: "Mad Ads",
-                        imgPath: "${S.carousel}5.png"),
-                    MenuButton(
-                        onTap: () {},
-                        width: width,
-                        tag: "Gallery",
-                        imgPath: S.gallery),
-                    MenuButton(
-                        onTap: () {},
-                        width: width,
-                        tag: "About Us",
-                        imgPath: S.team),
-                  ],
-                )),
-            Column(
+    return AdvancedDrawer(
+        backdropColor: C.primaryColor,
+        controller: _advancedDrawerController,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 300),
+        animateChildDecoration: true,
+        rtlOpening: false,
+        disabledGestures: false,
+        childDecoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(16)),
+        ),
+        drawer: SafeArea(
+          child: ListTileTheme(
+            textColor: Color(0xff0E0207),
+            iconColor: Color(0xff0E0207),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          //TODO: Add profile page
-                        },
-                        icon: const Icon(
-                          Icons.person,
-                          color: C.vintageBackdrop1,
-                          size: 30.0,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () async {
-                          await FirebaseAuth.instance.signOut();
-                          print(FirebaseAuth.instance.currentUser);
-                          Navigator.pushReplacementNamed(
-                              context, S.routeSplash);
-                        },
-                        icon: const Icon(
-                          Icons.logout,
-                          color: C.vintageBackdrop1,
-                          size: 30.0,
-                        ),
-                      ),
-                    ],
+                Container(
+                  width: 128.0,
+                  height: 128.0,
+                  margin: const EdgeInsets.only(
+                    top: 24.0,
+                    bottom: 64.0,
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  decoration: const BoxDecoration(
+                    color: Colors.black26,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.asset(
+                    S.profile,
                   ),
                 ),
-                FrostedGlassBox1(
-                    theWidth: width,
-                    theChild: Column(
-                      children: [
-                        GradientText("ECLECTIKA",
-                            gradient: const LinearGradient(
-                              colors: [
-                                C.vintageBackdrop2,
-                                Color(0xffCA965C),
-                                Color(0xff876445),
-                                Color(0xffCA965C),
-                                Color(0xff876445),
-                                Color(0xffCA965C),
-                                Color(0xff876445),
-                                C.vintageBackdrop2,
-                              ],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            )),
-                        const SizedBox(
-                          height: 5.0,
-                        ),
-                        RichText(
-                          text: const TextSpan(
-                            text: "Let's start the ",
-                            style: TextStyle(
-                                color: Color(0xffCA965C), fontSize: 24),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: 'Thunder',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: C.buttonColor)),
-                            ],
-                          ),
-                        ),
-                      ],
-                    )),
+                ListTile(
+                  onTap: () {},
+                  leading: const Icon(Icons.person,size: 30,),
+                  title: Text(userProfile!.name, style: GoogleFonts.sen(fontSize: 20.0,color: C.vintageBackdrop4, fontWeight: FontWeight.bold)),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading: const Icon(Icons.phone,size: 30,),
+                  title: Text(userProfile!.contactNumber, style: GoogleFonts.sen(fontSize: 20.0,color: C.vintageBackdrop4, fontWeight: FontWeight.bold)),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading: const Icon(Icons.email,size: 30,),
+                  title: Text(userProfile!.email, style: GoogleFonts.sen(fontSize: 20.0,color: C.vintageBackdrop4, fontWeight: FontWeight.bold)),
+                ),
+                SizedBox(
+                  height: 170,
+                ),
+                FormButton(title: 'Contact App Team',
+                    fillColor: C.backgroundColor,
+                    borderColor: C.buttonColor,
+                    onClick: (){
+                    }
+                ),
+                const Spacer(),
+                DefaultTextStyle(
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.white54,
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 16.0,
+                    ),
+                    child: const Text('Terms of Service | Privacy Policy'),
+                  ),
+                ),
               ],
             ),
-          ],
+          ),
         ),
-      ],
+        child:Container(
+          color: const Color(0xff0E0207),
+          width: width,
+          height: height,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Stack(
+                children: [
+                  Container(
+                      width: width,
+                      height: height,
+                      child: Center(child: Image.asset("${S.carousel}5.png"))),
+                  Container(
+                      padding: const EdgeInsets.only(top: 200),
+                      width: width,
+                      height: height,
+                      child: ListView(
+                        padding: const EdgeInsets.all(8),
+                        children: <Widget>[
+                          MenuButton(
+                              onTap: () {
+                                Navigator.pushNamed(context, S.routeEvents);
+                              },
+                              width: width,
+                              tag: "Events",
+                              imgPath: S.evnets),
+                          MenuButton(
+                              onTap: () {},
+                              width: width,
+                              tag: "Schedule",
+                              imgPath: S.schedule),
+                          MenuButton(
+                              onTap: () {},
+                              width: width,
+                              tag: "Face Of Eclectika",
+                              imgPath: S.face),
+                          MenuButton(
+                              onTap: () =>
+                                  Navigator.pushNamed(context, S.routeMadAds),
+                              width: width,
+                              tag: "Mad Ads",
+                              imgPath: "${S.carousel}5.png"),
+                          MenuButton(
+                              onTap: () {},
+                              width: width,
+                              tag: "Gallery",
+                              imgPath: S.gallery),
+                          MenuButton(
+                              onTap: () {},
+                              width: width,
+                              tag: "About Us",
+                              imgPath: S.team),
+                        ],
+                      )),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                              onPressed: _handleMenuButtonPressed,
+                              icon: ValueListenableBuilder<AdvancedDrawerValue>(
+                                valueListenable: _advancedDrawerController,
+                                builder: (_, value, __) {
+                                  return AnimatedSwitcher(
+                                    duration: const Duration(milliseconds: 250),
+                                    child: Icon(
+                                      value.visible ? Icons.clear : Icons.person,
+                                      color: C.vintageBackdrop1,
+                                      size: 30.0,
+                                      key: ValueKey<bool>(value.visible),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () async {
+                                await FirebaseAuth.instance.signOut();
+                                print(FirebaseAuth.instance.currentUser);
+                                Navigator.pushReplacementNamed(
+                                    context, S.routeSplash);
+                              },
+                              icon: const Icon(
+                                Icons.logout,
+                                color: C.vintageBackdrop1,
+                                size: 30.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      FrostedGlassBox1(
+                          theWidth: width,
+                          theChild: Column(
+                            children: [
+                              GradientText("ECLECTIKA",
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      C.vintageBackdrop2,
+                                      Color(0xffCA965C),
+                                      Color(0xff876445),
+                                      Color(0xffCA965C),
+                                      Color(0xff876445),
+                                      Color(0xffCA965C),
+                                      Color(0xff876445),
+                                      C.vintageBackdrop2,
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  )),
+                              const SizedBox(
+                                height: 5.0,
+                              ),
+                              RichText(
+                                text: const TextSpan(
+                                  text: "Let's start the ",
+                                  style: TextStyle(
+                                      color: Color(0xffCA965C), fontSize: 24),
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                        text: 'Thunder',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: C.buttonColor)),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
     );
   }
 
@@ -220,6 +310,10 @@ class _HomeState extends State<Home> {
   void _getProfile(BuildContext context) {
     final cubit = context.read<HomeCubit>();
     cubit.getUser();
+  }
+
+  void _handleMenuButtonPressed() {
+    _advancedDrawerController.showDrawer();
   }
 }
 
@@ -240,3 +334,5 @@ class videoPlayer extends StatelessWidget {
     );
   }
 }
+
+
