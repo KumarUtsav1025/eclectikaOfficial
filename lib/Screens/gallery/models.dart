@@ -10,11 +10,11 @@ class DataModel {
 }
 
 List<DataModel> dataList = [
-  DataModel("Short Dress", "asset/menu/gallery1.jpg", 300.8),
-  DataModel("Office Formals", "asset/menu/gallery2.jpg", 245.2),
-  DataModel("Casual Jeans", "asset/menu/gallery3.jpg", 168.2),
-  DataModel("Jeans Skirt", "asset/menu/gallery4.jpg", 136.7),
-  DataModel("Jeans Skirt", "asset/menu/gallery5.jpg", 136.7),
-  DataModel("Jeans Skirt", "asset/menu/gallery6.jpg", 136.7),
-  DataModel("Jeans Skirt", "asset/menu/gallery7.jpg", 136.7),
+  DataModel("Gallery 1", "asset/menu/gallery1.jpg", 300.8),
+  DataModel("Gallery 2", "asset/menu/gallery2.jpg", 245.2),
+  DataModel("Gallery 3", "asset/menu/gallery3.jpg", 168.2),
+  DataModel("Gallery 4", "asset/menu/gallery4.jpg", 136.7),
+  DataModel("Gallery 5", "asset/menu/gallery5.jpg", 136.7),
+  DataModel("Gallery 6", "asset/menu/gallery6.jpg", 136.7),
+  DataModel("Gallery 7", "asset/menu/gallery7.jpg", 136.7),
 ];
