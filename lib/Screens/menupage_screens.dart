@@ -1,4 +1,5 @@
 import 'package:eclectika23_official_app/Screens/MadAds/MadAds.dart';
+import 'package:eclectika23_official_app/Screens/events/events_main_screen.dart';
 import 'package:eclectika23_official_app/Screens/events/events_screen.dart';
 import 'package:eclectika23_official_app/Screens/gallery/gallery_screen.dart';
 import 'package:eclectika23_official_app/Screens/sponsors/sponsors_screen.dart';

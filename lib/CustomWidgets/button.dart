@@ -107,6 +107,56 @@ class FormButton extends StatelessWidget {
   }
 }
 
+class FormButton1 extends StatelessWidget{
+  String title;
+  Color fillColor;
+  Color borderColor;
+  final VoidCallback? onClick;
+  FormButton1({
+    Key? key,
+    required this.title,
+    required this.fillColor,
+    required this.borderColor,
+    required this.onClick,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return InkWell(
+      onTap: onClick,
+      splashColor: C.gradientColor,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal:width*0.045, vertical: 10),
+        decoration: BoxDecoration(
+            color: fillColor,
+            border: Border.all(color: borderColor, width: 3.0),
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color: borderColor,
+                spreadRadius: 0.5,
+                blurRadius: 5.0,
+              )
+            ]
+        ),
+        height: height*0.075,
+        width: width*0.4,
+        child: Center(
+          child: Text(title,
+            style: GoogleFonts.cabin(
+                fontSize: 24,
+                fontWeight: FontWeight.w800,
+                color: borderColor
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class MenuButton extends StatelessWidget {
   MenuButton({Key? key, required this.onTap ,required this.width, required this.tag, required this.imgPath}) : super(key: key);
 

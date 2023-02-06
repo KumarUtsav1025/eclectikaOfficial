@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
           S.routeSplash: (_) => BlocProvider(
               create: (_) => SplashScreenCubit(SplashNetwork()),
               child: SplashScreen()),
-          S.routeWelcome: (_) => const Welcome(),
+          S.routeWelcome: (_) => Welcome(),
           S.routeMadAds: (_) => const MadAdsScreen(),
           S.routeEvents: (_) => const EventMainScreen(),
           S.routeSponsors: (_) => const SponsorsScreen(),
@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
               secondary: C.buttonColor,
             )
         ),
-        home: const Welcome(),
+        home: Welcome(),
       ),
     );
   }

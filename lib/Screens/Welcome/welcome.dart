@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:eclectika23_official_app/CustomWidgets/screen_background.dart';
+import 'package:eclectika23_official_app/Screens/Welcome/network.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,7 +10,7 @@ import '../../constants/colors.dart';
 import '../../constants/strings.dart';
 
 class Welcome extends StatelessWidget {
-  const Welcome({Key? key}) : super(key: key);
+  Welcome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +93,7 @@ class _InitialPageState extends State<InitialPage> {
                   onClick: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const FinalPage()),
+                      MaterialPageRoute(builder: (context) => FinalPage()),
                     );
                   },
                 ),
@@ -108,7 +109,7 @@ class _InitialPageState extends State<InitialPage> {
                     if(current>=1){
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const FinalPage()),
+                        MaterialPageRoute(builder: (context) => FinalPage()),
                       );
                     }
                   },
@@ -125,7 +126,9 @@ class _InitialPageState extends State<InitialPage> {
 
 
 class FinalPage extends StatelessWidget {
-  const FinalPage({Key? key}) : super(key: key);
+  FinalPage({Key? key}) : super(key: key);
+  SkipLogin skipLogin = SkipLogin();
+
 
   @override
   Widget build(BuildContext context) {
@@ -149,20 +152,32 @@ class FinalPage extends StatelessWidget {
                 const SizedBox(height: 25.0,),
                 Center(child: Text("---Register to Continue---", style: GoogleFonts.sen(fontSize: 18.0,color: Colors.white))),
                 const SizedBox(height: 5.0,),
-                FormButton(title: 'Signup',
+                Row(
+                  children: [
+                    FormButton1(title: 'Signup',
+                        fillColor: C.backgroundColor,
+                        borderColor: C.buttonColor,
+                        onClick: (){
+                          Navigator.pushReplacementNamed(context, S.routeSignup);
+                        }
+                    ),
+                    FormButton1(title: 'Login',
+                        fillColor: C.backgroundColor,
+                        borderColor: C.buttonColor,
+                        onClick: (){
+                          Navigator.pushReplacementNamed(context, S.routeLogin);
+                        }
+                    ),
+                  ],
+                ),
+                FormButton(title: 'Continue as Guest',
                     fillColor: C.backgroundColor,
                     borderColor: C.buttonColor,
-                    onClick: (){
-                      Navigator.pushReplacementNamed(context, S.routeSignup);
+                    onClick: () async {
+                      await skipLogin.welcome(emailAddress: "dinosaur@eclectika.com", password: "dinosaur2023");
+                      Navigator.pushReplacementNamed(context, S.routeSplash);
                     }
                 ),
-                FormButton(title: 'Login',
-                    fillColor: C.backgroundColor,
-                    borderColor: C.buttonColor,
-                    onClick: (){
-                      Navigator.pushReplacementNamed(context, S.routeLogin);
-                    }
-                )
               ],
             )
           ),
