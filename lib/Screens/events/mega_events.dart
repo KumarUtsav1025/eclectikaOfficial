@@ -1,4 +1,3 @@
-import 'package:custom_alert_dialog_box/custom_alert_dialog_box.dart';
 import 'package:eclectika23_official_app/Screens/events/details.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_card_carousel/stacked_card_carousel.dart';
