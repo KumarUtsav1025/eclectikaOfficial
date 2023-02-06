@@ -100,37 +100,42 @@ class _HomeState extends State<Home> {
                 child: ListView(
                   padding: const EdgeInsets.all(8),
                   children: <Widget>[
-                    MenuButton(
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, S.routeEvents),
+                      child: MenuButton(
                         onTap: () => Navigator.pushNamed(context, S.routeEvents),
                         width: width,
                         tag: "Events",
-                        imgPath: S.evnets),
-                    MenuButton(
-                        onTap: () => Navigator.pushNamed(context, S.routeSponsors),
-                        width: width,
-                        tag: "Sponsors",
-                        imgPath: S.evnets),
-                    MenuButton(
-                        onTap: () => Navigator.pushNamed(context, S.routeFaceOfEclectika),
-                        width: width,
-                        tag: "Face Of Eclectika",
-                        imgPath: S.face),
-                    MenuButton(
+                        imgPath: S.evnets),),
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, S.routeMadAds),
+                      child:MenuButton(
                         onTap: () =>
                             Navigator.pushNamed(context, S.routeMadAds),
                         width: width,
                         tag: "Mad Ads",
-                        imgPath: S.evnets),
-                    MenuButton(
+                        imgPath: S.evnets),),
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, S.routeGallery),
+                      child:MenuButton(
                         onTap: () => Navigator.pushNamed(context, S.routeGallery),
                         width: width,
                         tag: "Gallery",
-                        imgPath: S.gallery),
-                    MenuButton(
+                        imgPath: S.gallery),),
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, S.routeSponsors),
+                      child:MenuButton(
+                        onTap: () => Navigator.pushNamed(context, S.routeSponsors),
+                        width: width,
+                        tag: "Sponsors",
+                        imgPath: S.evnets),),
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, S.routeTeam),
+                      child:MenuButton(
                         onTap: () => Navigator.pushNamed(context, S.routeTeam),
                         width: width,
                         tag: "About Us",
-                        imgPath: S.evnets),
+                        imgPath: S.evnets),),
                   ],
                 )),
             Column(

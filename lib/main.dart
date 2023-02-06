@@ -1,6 +1,7 @@
 import 'package:eclectika23_official_app/Screens/MadAds/MadAds.dart';
 import 'package:eclectika23_official_app/Screens/events/events_screen.dart';
-import 'package:eclectika23_official_app/Screens/face_of_eclectika/face_of_eclectika_screen.dart';
+import 'package:eclectika23_official_app/Screens/events/mega_events.dart';
+import 'package:eclectika23_official_app/Screens/events/mini_event_screen.dart';
 import 'package:eclectika23_official_app/Screens/gallery/gallery_screen.dart';
 import 'package:eclectika23_official_app/Screens/sponsors/sponsors_screen.dart';
 import 'package:eclectika23_official_app/Screens/team/team_screen.dart';
@@ -58,8 +59,9 @@ class MyApp extends StatelessWidget {
           S.routeEvents: (_) => const EventsScreen(),
           S.routeSponsors: (_) => const SponsorsScreen(),
           S.routeTeam: (_) => const TeamScreen(),
-          S.routeFaceOfEclectika: (_) => const FaceOfEclectikaScreen(),
           S.routeGallery: (_) => const GalleryScreen(),
+          S.routeMegaEvents: (_) => MegaEventScreen(),
+          S.routeMiniEvents: (_) => MiniEventScreen(),
           S.routeHome: (_) => BlocProvider(
               create: (_) => HomeCubit(HomeNetwork()),
               child: Home()),
