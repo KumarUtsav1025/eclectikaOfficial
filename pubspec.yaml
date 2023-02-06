@@ -52,7 +52,9 @@ dependencies:
   stacked_card_carousel: ^0.0.4
   flutter_screenutil: ^5.6.1
   auto_size_text: ^3.0.0
-  custom_alert_dialog_box: ^1.0.2
+  swipeable_card_stack: ^0.0.5
+  appinio_swiper: ^1.1.1
+  concentric_transition: ^1.0.3
 
 dev_dependencies:
   flutter_test:
