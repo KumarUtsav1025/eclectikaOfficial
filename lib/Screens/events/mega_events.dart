@@ -1,39 +1,35 @@
-import 'package:eclectika23_official_app/CustomWidgets/loadingWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_card_carousel/stacked_card_carousel.dart';
-import '../../Modals/events.dart';
-import 'network.dart';
 
-List<Widget> eventList=[];
-
-Future<void> eventTabs() async{
-  EventNetwork eventNetwork = EventNetwork();
-  List events  = await eventNetwork.getEventDetails();
-  events.forEach((element) {
-    eventList.add(
-      FancyCard(
-        image: Image.network(element.link),
-        title: element.name,
-      ),
-    );
-  });
-}
-
-
-
-class MegaEventScreen extends StatefulWidget {
-
+class MegaEventScreen extends StatelessWidget {
   MegaEventScreen({super.key});
 
-  @override
-  State<MegaEventScreen> createState() => _MegaEventScreenState();
-}
-
-class _MegaEventScreenState extends State<MegaEventScreen> {
-  @override
-  void initState(){
-    eventTabs();
-  }
+  final List<Widget> fancyCards = <Widget>[
+    FancyCard(
+      image: Image.asset("asset/menu/events.png"),
+      title: "Say hello to planets!",
+    ),
+    FancyCard(
+      image: Image.asset("asset/menu/events.png"),
+      title: "Don't be sad!",
+    ),
+    FancyCard(
+      image: Image.asset("asset/menu/events.png"),
+      title: "Go for a walk!",
+    ),
+    FancyCard(
+      image: Image.asset("asset/menu/events.png"),
+      title: "Try teleportation!",
+    ),
+    FancyCard(
+      image: Image.asset("asset/menu/events.png"),
+      title: "Enjoy your coffee!",
+    ),
+    FancyCard(
+      image: Image.asset("asset/menu/events.png"),
+      title: "Play with your cat!",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +41,11 @@ class _MegaEventScreenState extends State<MegaEventScreen> {
           style: TextStyle(fontSize: 40, color: Color(0xffFFEBC1)),
         ),
       ),
-      body: FutureBuilder(
-        future: ,
-        builder: (context){},
-      ),
+      body: Container(
+        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("asset/welcomeCarousel/5.png"),fit: BoxFit.cover)),
+        child:StackedCardCarousel(
+          items: fancyCards,
+        ),),
     );
   }
 }

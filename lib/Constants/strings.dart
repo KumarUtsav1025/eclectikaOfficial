@@ -32,8 +32,9 @@ class S {
   static const routeEvents = '/events';
   static const routeSponsors = '/sponsors';
   static const routeTeam = '/team';
-  static const routeFaceOfEclectika = '/face_of_eclectika';
   static const routeGallery = '/gallery';
+  static const routeMegaEvents = '/events/mega_events';
+  static const routeMiniEvents = '/events/mini_event_screen';
 
   //errors
   static const firebaseErrors = {
