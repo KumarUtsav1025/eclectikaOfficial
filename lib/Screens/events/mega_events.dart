@@ -44,8 +44,8 @@ class MegaEventScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(image: DecorationImage(image: AssetImage("asset/welcomeCarousel/5.png"),fit: BoxFit.cover)),
         child:StackedCardCarousel(
-        items: fancyCards,
-      ),),
+          items: fancyCards,
+        ),),
     );
   }
 }

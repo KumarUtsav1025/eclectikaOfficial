@@ -191,11 +191,6 @@ class _HomeState extends State<Home> {
                             tag: "Sponsors",
                             imgPath: S.sponsor),
                         MenuButton(
-                            onTap: () => Navigator.pushNamed(context, S.routeFaceOfEclectika),
-                            width: width,
-                            tag: "Face Of Eclectika",
-                            imgPath: S.face),
-                        MenuButton(
                             onTap: () =>
                                 Navigator.pushNamed(context, S.routeMadAds),
                             width: width,
@@ -332,4 +327,3 @@ class videoPlayer extends StatelessWidget {
     );
   }
 }
-

@@ -1,6 +1,6 @@
 import 'package:eclectika23_official_app/Screens/MadAds/MadAds.dart';
-import 'package:eclectika23_official_app/Screens/events/events_main_screen.dart';
-import 'package:eclectika23_official_app/Screens/face_of_eclectika/face_of_eclectika_screen.dart';
+import 'package:eclectika23_official_app/Screens/events/mega_events.dart';
+import 'package:eclectika23_official_app/Screens/events/mini_event_screen.dart';
 import 'package:eclectika23_official_app/Screens/gallery/gallery_screen.dart';
 import 'package:eclectika23_official_app/Screens/sponsors/sponsors_screen.dart';
 import 'package:eclectika23_official_app/Screens/team/team_screen.dart';
@@ -12,6 +12,7 @@ import 'Screens/Home/network.dart';
 import 'Screens/SplashScreen/cubit/splashScreenCubit.dart';
 import 'Screens/SplashScreen/splashScreen.dart';
 import 'Screens/SplashScreen/splashScreenNetwork.dart';
+import 'Screens/events/events_main_screen.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,8 +59,9 @@ class MyApp extends StatelessWidget {
           S.routeEvents: (_) => const EventMainScreen(),
           S.routeSponsors: (_) => const SponsorsScreen(),
           S.routeTeam: (_) => const TeamScreen(),
-          S.routeFaceOfEclectika: (_) => const FaceOfEclectikaScreen(),
           S.routeGallery: (_) => const GalleryScreen(),
+          S.routeMegaEvents: (_) => MegaEventScreen(),
+          S.routeMiniEvents: (_) => MiniEventScreen(),
           S.routeHome: (_) => BlocProvider(
               create: (_) => HomeCubit(HomeNetwork()),
               child: Home()),

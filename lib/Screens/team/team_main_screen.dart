@@ -23,11 +23,11 @@ class _TeamMainScreenState extends State<TeamMainScreen> {
     "asset/menu/IMG_20230110_003536-01.jpeg",
     "asset/menu/IMG_20221008_230040.jpg",
     "asset/menu/1670776276642.jpg",
-    "asset/menu/IMG20230101125308.jpg",
-    "asset/menu/IMG_20220402_105113.jpg",
-    "asset/menu/IMG_20192939.jpeg",
+    "asset/menu/havilah3.jpg",
+    "asset/menu/shruti3.jpg",
     "asset/menu/Screenshot_2023-01-09-22-55-25-21_6012fa4d4ddec268fc5c7112cbb265e7.jpg",
-    "asset/menu/IMG_20221228_205743.jpg",
+    "asset/menu/IMG_20220402_105113.jpg",
+    "asset/menu/IMG-20192939.jpeg",
     "asset/menu/1671904128344.jpg",
     "asset/menu/IMG_20211019_142559_514.jpg",
     "asset/menu/95805.jpeg",
@@ -45,13 +45,13 @@ class _TeamMainScreenState extends State<TeamMainScreen> {
     "Creatives",
     "Creatives",
     "Documnent",
-    "Spons",
-    "Spons",
-    "Spons",
+    "Sponsorship",
+    "Sponsorship",
+    "Sponsorship",
     "Public Relations",
     "Public Relations",
     "Public Relations",
-    "Web developer",
+    "Technical",
   ];
   List<String> texts2 = [
     "CSE",
@@ -89,7 +89,7 @@ class _TeamMainScreenState extends State<TeamMainScreen> {
     "Suraj",
     "Umakant",
     "K S Laasya",
-    "vivek",
+    "Vivek kumar",
   ];
   List<String> texts4 = [
     "8668873065",
@@ -192,7 +192,7 @@ class _TeamMainScreenState extends State<TeamMainScreen> {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage(imageList[index]),
+                  foregroundImage: AssetImage(imageList[index]),
                   radius: 50,
                 ),
                 SizedBox(width: 20,),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class SponsorsMainScreen extends StatefulWidget {
   const SponsorsMainScreen({Key? key}) : super(key: key);
@@ -24,6 +25,17 @@ class _SponsorsMainScreenState extends State<SponsorsMainScreen> {
     "Raag-The music academy",
     "Raag music cafe",
     "Sargam musicals"
+  ];
+  List<String> imageList = [
+    "asset/menu/inside_me2.jpg",
+    "asset/menu/sparkcars2.jpg",
+    "asset/menu/lic2.jpg",
+    "asset/menu/pib2.jpg",
+    "asset/menu/rebounce2.jpg",
+    "asset/menu/ab_classes2.jpg",
+    "asset/menu/raag_music_academy2.jpg",
+    "asset/menu/raag_music_cafe2.jpg",
+    "asset/menu/sargam_musicals2.jpg",
   ];
   @override
   void initState() {
@@ -114,27 +126,34 @@ class _SponsorsMainScreenState extends State<SponsorsMainScreen> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
-        //mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             child: Row(
               children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage("asset/menu/human.jpg"),
+                Center(child:CircleAvatar(
+                  foregroundImage: AssetImage(imageList[index]),
                   radius: 40,
-                ),
+                ),),
                 SizedBox(
                   width: 20,
                 ),
                 Column(
                   children: [
                     SizedBox(
-                      height: 25,
+                      height: 30,
                     ),
-                    Text.rich(
-                      TextSpan(
-                        text: texts[index],
-                        style: TextStyle(fontSize: 18), // default text style
+                    Expanded(
+                      child: AutoSizeText.rich(
+                        TextSpan(
+                          text: texts[index],
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight:
+                                  FontWeight.bold), // default text style
+                        ),
+                        minFontSize: 0,
+                        stepGranularity: 0.1,
                       ),
                     ),
                   ],
