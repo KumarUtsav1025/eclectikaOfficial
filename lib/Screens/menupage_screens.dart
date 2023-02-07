@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:eclectika23_official_app/Screens/MadAds/MadAds.dart';
 import 'package:eclectika23_official_app/Screens/events/events_main_screen.dart';
 import 'package:eclectika23_official_app/Screens/events/events_screen.dart';
@@ -29,10 +30,19 @@ class MenuPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       SizedBox(
-                          child: Text(
-                        "Eclectika",
-                        style: TextStyle(fontSize: 40,color: Color(0xffFFEBC1)),
-                      )),
+                        child: AutoSizeText.rich(
+                        TextSpan(
+                          text: "Eclectika",
+                          style: TextStyle(
+                              fontSize: 40,
+                              fontWeight:FontWeight.bold,
+                              color: Color(0xffFFEBC1),
+                          ), // default text style
+                        ),
+                        minFontSize: 0,
+                        stepGranularity: 0.1,
+                        ),
+                      ),
                       SizedBox(
                         height: 10.0,
                       ),

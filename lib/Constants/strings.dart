@@ -14,7 +14,7 @@ class S {
   static const String schedule = "asset/menu/schedule.png";
   static const String team = "asset/menu/team.jpeg";
   static const String profile = "asset/menu/profile.png";
-  static const String gallery="asset/menu/dinosaur_taking_pictures.webp";
+  static const String gallery = "asset/menu/dinosaur_taking_pictures.webp";
 
   static const List text1 = [
     "Unleash your wild side at our Jurassic themed event.",
@@ -35,6 +35,7 @@ class S {
   static const routeGallery = '/gallery';
   static const routeMegaEvents = '/events/mega_events';
   static const routeMiniEvents = '/events/mini_event_screen';
+  static const routeContactTeam = '/home/contact_app_screen';
 
   //errors
   static const firebaseErrors = {

@@ -1,3 +1,5 @@
+import 'package:eclectika23_official_app/Constants/colors.dart';
+import 'package:eclectika23_official_app/CustomWidgets/customText.dart';
 import 'package:eclectika23_official_app/Screens/events/details.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_card_carousel/stacked_card_carousel.dart';
@@ -27,9 +29,23 @@ class MegaEventScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff000000),
-        title: Text(
-          'Mega Events',
-          style: TextStyle(fontSize: 40, color: Color(0xffFFEBC1)),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 15,),
+          child: GradientText("MegaEvents",
+              gradient: const LinearGradient(
+                colors: [
+                  C.vintageBackdrop2,
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  C.vintageBackdrop2,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              )),
         ),
       ),
       body: Container(

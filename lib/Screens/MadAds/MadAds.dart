@@ -84,29 +84,11 @@ class MadAdsScreen extends StatelessWidget {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.download_outlined, color:C.primaryColor, size:50),
-                            Text("Will be uploaded Soon...",
-                              maxLines: 1,
-                              style: GoogleFonts.roboto(color: C.primaryColor,
-                                fontSize: 25, letterSpacing: 0.01, fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
+                        ListView(
+                            children: videoTabs(year: "2023")
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.download_outlined, color:C.primaryColor, size:50),
-                            Text("Will be uploaded Soon...",
-                              maxLines: 1,
-                              style: GoogleFonts.roboto(color: C.primaryColor,
-                                fontSize: 25, letterSpacing: 0.01, fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
+                        ListView(
+                            children: videoTabs(year: "2020")
                         ),
                         ListView(
                             children: videoTabs(year: "2019")

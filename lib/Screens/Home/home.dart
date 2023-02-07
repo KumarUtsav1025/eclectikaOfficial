@@ -121,28 +121,50 @@ class _HomeState extends State<Home> {
               ),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.person,size: 30,),
-                title: Text(userProfile!.name, style: GoogleFonts.sen(fontSize: 20.0,color: C.vintageBackdrop4, fontWeight: FontWeight.bold)),
+                leading: const Icon(
+                  Icons.person,
+                  size: 30,
+                ),
+                title: Text(userProfile!.name,
+                    style: GoogleFonts.sen(
+                        fontSize: 20.0,
+                        color: C.vintageBackdrop4,
+                        fontWeight: FontWeight.bold)),
               ),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.phone,size: 30,),
-                title: Text(userProfile!.contactNumber, style: GoogleFonts.sen(fontSize: 20.0,color: C.vintageBackdrop4, fontWeight: FontWeight.bold)),
+                leading: const Icon(
+                  Icons.phone,
+                  size: 30,
+                ),
+                title: Text(userProfile!.contactNumber,
+                    style: GoogleFonts.sen(
+                        fontSize: 20.0,
+                        color: C.vintageBackdrop4,
+                        fontWeight: FontWeight.bold)),
               ),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.email,size: 30,),
-                title: Text(userProfile!.email, style: GoogleFonts.sen(fontSize: 20.0,color: C.vintageBackdrop4, fontWeight: FontWeight.bold)),
+                leading: const Icon(
+                  Icons.email,
+                  size: 30,
+                ),
+                title: Text(userProfile!.email,
+                    style: GoogleFonts.sen(
+                        fontSize: 20.0,
+                        color: C.vintageBackdrop4,
+                        fontWeight: FontWeight.bold)),
               ),
               SizedBox(
                 height: 170,
               ),
-              FormButton(title: 'Contact App Team',
+              FormButton(
+                  title: 'Contact App Team',
                   fillColor: C.backgroundColor,
                   borderColor: C.buttonColor,
-                  onClick: (){
-                  }
-              ),
+                  onClick: () {
+                    Navigator.pushNamed(context, S.routeContactTeam);
+                  }),
               const Spacer(),
               DefaultTextStyle(
                 style: const TextStyle(
@@ -160,7 +182,7 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-      child:Container(
+      child: Container(
         color: const Color(0xff0E0207),
         width: width,
         height: height,
@@ -181,12 +203,14 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.all(8),
                       children: <Widget>[
                         MenuButton(
-                            onTap: () => Navigator.pushNamed(context, S.routeEvents),
+                            onTap: () =>
+                                Navigator.pushNamed(context, S.routeEvents),
                             width: width,
                             tag: "Events",
                             imgPath: S.events),
                         MenuButton(
-                            onTap: () => Navigator.pushNamed(context, S.routeSponsors),
+                            onTap: () =>
+                                Navigator.pushNamed(context, S.routeSponsors),
                             width: width,
                             tag: "Sponsors",
                             imgPath: S.sponsor),
@@ -197,12 +221,14 @@ class _HomeState extends State<Home> {
                             tag: "Mad Ads",
                             imgPath: "${S.carousel}5.png"),
                         MenuButton(
-                            onTap: () => Navigator.pushNamed(context, S.routeGallery),
+                            onTap: () =>
+                                Navigator.pushNamed(context, S.routeGallery),
                             width: width,
                             tag: "Gallery",
                             imgPath: S.gallery),
                         MenuButton(
-                            onTap: () => Navigator.pushNamed(context, S.routeTeam),
+                            onTap: () =>
+                                Navigator.pushNamed(context, S.routeTeam),
                             width: width,
                             tag: "About Us",
                             imgPath: S.team),
