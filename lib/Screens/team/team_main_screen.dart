@@ -1,3 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:eclectika23_official_app/Constants/colors.dart';
+import 'package:eclectika23_official_app/CustomWidgets/customText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -127,7 +130,24 @@ class _TeamMainScreenState extends State<TeamMainScreen> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xff000000),
-          title: const Text('About Us',style: TextStyle(fontSize: 30,color: Color(0xffFFEBC1)),),
+          title: Padding(
+          padding: const EdgeInsets.only(left: 15,),
+          child: GradientText("About Us",
+              gradient: const LinearGradient(
+                colors: [
+                  C.vintageBackdrop2,
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  C.vintageBackdrop2,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              )),
+        ),
           leading: IconButton(
             onPressed: ()=>ZoomDrawer.of(context)!.toggle(), 
             icon: Icon(Icons.menu)
@@ -199,34 +219,50 @@ class _TeamMainScreenState extends State<TeamMainScreen> {
                 Column(
                   children: [
                     SizedBox(height: 25,),
-                    Text(
-                      "${texts[index]}",
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+                    AutoSizeText.rich(
+                        TextSpan(
+                          text: "${texts[index]}",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight:
+                                  FontWeight.w500,), // default text style
+                        ),
+                        minFontSize: 0,
+                        stepGranularity: 0.1,
                       ),
-                    ),
-                    Text(
-                      "${texts2[index]}",
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+                      AutoSizeText.rich(
+                        TextSpan(
+                          text: "${texts2[index]}",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight:
+                                  FontWeight.w500,), // default text style
+                        ),
+                        minFontSize: 0,
+                        stepGranularity: 0.1,
                       ),
-                    ),
-                    Text(
-                      "${texts3[index]}",
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+                    AutoSizeText.rich(
+                        TextSpan(
+                          text: "${texts3[index]}",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight:
+                                  FontWeight.w500,), // default text style
+                        ),
+                        minFontSize: 0,
+                        stepGranularity: 0.1,
                       ),
-                    ),
-                    Text(
-                      "${texts4[index]}",
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
+                    AutoSizeText.rich(
+                        TextSpan(
+                          text: "${texts4[index]}",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight:
+                                  FontWeight.w500,), // default text style
+                        ),
+                        minFontSize: 0,
+                        stepGranularity: 0.1,
                       ),
-                    ),
                   ],
                 ),
               ],

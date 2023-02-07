@@ -1,4 +1,5 @@
 import 'package:eclectika23_official_app/CustomWidgets/button.dart';
+import 'package:eclectika23_official_app/CustomWidgets/customText.dart';
 import 'package:eclectika23_official_app/Screens/events/mega_events.dart';
 import 'package:eclectika23_official_app/Screens/events/mini_event_screen.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +28,23 @@ class _EventMainScreenState extends State<EventMainScreen> {
       backgroundColor: Color(0xff000000),
       appBar: AppBar(
         backgroundColor: Color(0xff000000),
-        title: Text(
-          'Events',
-          style: TextStyle(fontSize: 40, color: Color(0xffFFEBC1)),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 15,),
+          child: GradientText("Events",
+              gradient: const LinearGradient(
+                colors: [
+                  C.vintageBackdrop2,
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  C.vintageBackdrop2,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              )),
         ),
         leading: IconButton(
             onPressed: () => ZoomDrawer.of(context)!.toggle(),
@@ -38,7 +53,7 @@ class _EventMainScreenState extends State<EventMainScreen> {
       body: Column(
         children: [
           Container(
-            child: Image.asset("asset/menu/events_dinosaur.webp"),
+            child: Image.asset("asset/welcomeCarousel/5.png"),
           ),
           Expanded(
             child: Container(

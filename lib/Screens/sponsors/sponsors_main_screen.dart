@@ -1,3 +1,5 @@
+import 'package:eclectika23_official_app/Constants/colors.dart';
+import 'package:eclectika23_official_app/CustomWidgets/customText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -24,10 +26,15 @@ class _SponsorsMainScreenState extends State<SponsorsMainScreen> {
     "AB Classes",
     "Raag-The music academy",
     "Raag music cafe",
-    "Sargam musicals"
+    "Sargam musicals",
+    "Sjain",
+    "जन धारा 24",
+    "Swadesh News",
+    "VIP News",
+    "TV27News"
   ];
   List<String> imageList = [
-    "asset/menu/inside_me2.jpg",
+    "asset/menu/inside_me5.jpg",
     "asset/menu/sparkcars2.jpg",
     "asset/menu/lic2.jpg",
     "asset/menu/pib2.jpg",
@@ -36,6 +43,11 @@ class _SponsorsMainScreenState extends State<SponsorsMainScreen> {
     "asset/menu/raag_music_academy2.jpg",
     "asset/menu/raag_music_cafe2.jpg",
     "asset/menu/sargam_musicals2.jpg",
+    "asset/menu/sjain.jpg",
+    "asset/menu/jan_dhara.jpg",
+    "asset/menu/swadesh_news.jpg",
+    "asset/menu/vip_news.jpg",
+    "asset/menu/tv24news.jpg",
   ];
   @override
   void initState() {
@@ -55,13 +67,23 @@ class _SponsorsMainScreenState extends State<SponsorsMainScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff000000),
-        title: Text(
-          'Sponsors',
-          style: const TextStyle(
-            fontSize: 35,
-            fontWeight: FontWeight.w500,
-            color: Color(0xffFFEBC1),
-          ),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 15,),
+          child: GradientText("Sponsors",
+              gradient: const LinearGradient(
+                colors: [
+                  C.vintageBackdrop2,
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  Color(0xffCA965C),
+                  Color(0xff876445),
+                  C.vintageBackdrop2,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              )),
         ),
         leading: IconButton(
             onPressed: () => ZoomDrawer.of(context)!.toggle(),

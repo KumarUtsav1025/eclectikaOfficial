@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.eclectika23_official_app">
    <application
-        android:label="eclectika23_official_app"
+        android:label="Eclectika'23"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
